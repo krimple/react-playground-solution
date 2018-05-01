@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.visible.transition {
+  display: unset !important;
+}
+
+.dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
+  display: -ms-flexbox;
+  display: flex !important;
+  opacity: 1;
+}
+
+.cardHeight {
+  height: 200px;
+  overflow-y: scroll;
+}
