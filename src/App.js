@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import * as axios from 'axios';
-import Quizzer from "./react-only/Quizzer";
-import store from './react-and-redux/recipe-store';
+import QuizGame from "./react-only/QuizGame";
 
 class App extends Component {
-  constructor(props) {
-      super(props);
-      console.dir(store);
-  }
 
   componentDidMount() {
     axios.get('quizzes.json')
@@ -19,7 +14,7 @@ class App extends Component {
 
   render() {
     if (this.state && this.state.quizzes) {
-      return <Quizzer quizzes={this.state.quizzes}/>;
+      return <QuizGame quizzes={this.state.quizzes}/>;
     } else {
       return <p>please wait...</p>
     }

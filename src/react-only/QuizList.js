@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 
 export default class QuizList extends Component {
 
+  takeQuiz = (quizId) => {
+    this.props.onTakeQuiz(quizId);
+  };
+
   render() {
     console.log('quizzes', this.props.quizzes);
     const columns = this.props.quizzes.map((q,idx) => {
@@ -18,7 +22,10 @@ export default class QuizList extends Component {
             <Card.Description dangerouslySetInnerHTML={createMarkup()}/>
           </Card.Content>
           <Card.Content extra>
-            <Button basic color='green'>Take Quiz!</Button>
+            <Button basic color='green'
+                    onClick={ () => { this.takeQuiz(q.id); } }>
+              Take Quiz!
+            </Button>
           </Card.Content>
         </Card>
       </Grid.Column>);
@@ -30,9 +37,3 @@ export default class QuizList extends Component {
       </Grid>);
   }
 }
-
-QuizList.propTypes = {
-  quizzes: PropTypes.array.isRequired
-};
-
-
