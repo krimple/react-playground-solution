@@ -1,53 +1,62 @@
-import React, { Component } from 'react';
-import { Form, Input, Button } from 'semantic-ui-react';
-import Question from './Question';
+import React, { Component, Fragment } from 'react';
+import { Form, Input, Radio, Button } from 'semantic-ui-react';
 
 export default class QuestionForm extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   state = {
-    answers: []
+    answers: this.props.questions.map(question => {
+      return { questionId: question.id, answerId: null };
+    })
   };
 
-  // so stupid
-  handleQuestionAnswered = ({ questionId, answerId }) => {
-    console.log(`Question answered: ${questionId} - answer ${answerId}`);
-    debugger;
+  handleQuestionAnswered = (questionId, answerId) => {
     if (questionId && answerId) {
       // clone, then update the clone
-      const newAnswers = { ... this.state.answers };
+      const newAnswers = [ ...this.state.answers ];
 
       const answerEntry = newAnswers.find(a => a.questionId === questionId);
-      if (answerEntry) {
-        answerEntry.answerId = answerId;
-      } else {
-        newAnswers.push({ questionId: questionId, answerId: answerId});
-      }
+      answerEntry.answerId = answerId;
       this.setState({answers: newAnswers});
     }
   };
 
   render() {
-    const questions = this.props.questions.map((q,i) =>
-      <Question key={i}
-        question={q}
-        onChange={ this.handleQuestionAnswered }
-      />
-    );
+    const questions = this.props.questions.map((question, iQuestion) => {
+      const answers = question.answers.map((answer, iAnswer) => {
+        return (
+          <Form.Field
+            key={iAnswer}
+            control={Radio}
+            label={answer.answer}
+            value={answer.id}
+            onChange={(e, t) => { this.handleQuestionAnswered(question.id, answer.id) }}
+            checked={!!this.state.answers.find(a => a.questionId === question.id && a.answerId === answer.id)} />
+        );
+      });
+       return (
+         <Fragment>
+           { /* <Form.Group key={iQuestion} > */ }
+           <label>{ question.question }</label>
+           { answers }
+           { /* </Form.Group> */ }
+         </Fragment>
+       );
+    });
+
     return (
       <Form>
-        <Input label="name" onChange={(event) => {
-          console.debugger;
+        <Form.Field>
+          <Input label="Participant Name" onChange={ (event) => {
           this.setState({ participant: event.target.value });
         } } />
+        </Form.Field>
         { questions }
         <Button
+          type="button"
           basic={true}
           color={'red'}
-          onClick={this.closeDialog}>Submit Quiz!</Button>
+          disabled={ this.state.answers.findIndex(a => a.answerId === null) > -1}
+          onClick={() => { this.props.onQuestionsCompleted(this.state.answers) }}>Submit Quiz!</Button>
       </Form>
     );
   }

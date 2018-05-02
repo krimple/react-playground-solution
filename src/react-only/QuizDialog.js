@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Form, Header, Segment, Button, Modal } from 'semantic-ui-react';
+import { Header, Segment, Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import QuestionForm from './QuestionForm';
 
@@ -27,8 +27,12 @@ class QuizDialog extends Component {
      });
   }
 
-  handleQuestionsCompleted = (questions) => {
-
+  handleQuestionsCompleted = (answers) => {
+    console.log(`Quiz ${this.state.quiz.id} Questions completed, ${JSON.stringify(answers)}`);
+    this.setState({
+      dialogOpen: false,
+      quiz: null
+    });
   };
 
   render() {

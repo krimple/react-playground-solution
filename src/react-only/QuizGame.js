@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Form, Header, Divider} from 'semantic-ui-react';
+import {Container, Header, Divider} from 'semantic-ui-react';
 import QuizList from './QuizList';
 import QuizDialog from './QuizDialog';
 import PropTypes from 'prop-types';
@@ -31,7 +31,7 @@ export default class QuizGame extends Component {
     return (
       <Container>
         <Header>Quizzer</Header>
-        <Divider></Divider>
+        <Divider />
         <QuizList
           quizzes={this.props.quizzes}
           onTakeQuiz={this.handleTakeQuiz}
