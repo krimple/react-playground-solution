@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 export default class QuizList extends Component {
 
-  takeQuiz = (quizId) => {
-    this.props.onTakeQuiz(quizId);
+  takeQuiz = (quiz) => {
+    this.props.onTakeQuiz(quiz);
   };
 
   render() {
@@ -23,7 +23,7 @@ export default class QuizList extends Component {
           </Card.Content>
           <Card.Content extra>
             <Button basic color='green'
-                    onClick={ () => { this.takeQuiz(q.id); } }>
+                    onClick={ () => { this.takeQuiz(q); } }>
               Take Quiz!
             </Button>
           </Card.Content>

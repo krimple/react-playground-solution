@@ -6,6 +6,7 @@
     "description": "<p>A <em>delicious</em> test of your favorite food types.</p>",
     "questions": [
       {
+        "id": 1,
         "question": "Do you prefer...",
         "answers": [
           { "id": 1, "answer": "Broccoli", "correct": false },
@@ -14,6 +15,7 @@
         ]
       },
       {
+        "id": 2,
         "question": "How about...",
         "answers": [
           { "id": 1, "answer": "Cheese", "correct": true },
@@ -30,6 +32,7 @@
     "description": "<p>Red Rover, Red Rover, let React Come Over...</p>",
     "questions": [
       {
+        "id": 1,
         "question": "Do you prefer...",
         "answers": [
           { "id": 1, "answer": "Vizshla", "correct": false },
@@ -38,6 +41,7 @@
         ]
       },
       {
+        "id": 2,
         "question": "How about...",
         "answers": [
           { "id": 1, "answer": "Chiuahuah", "correct": true },
@@ -54,6 +58,7 @@
     "description": "<p>Meow. Meow. Is <em>ANYBODY</em> listening? I'm a cat. Deal with it!</p>",
     "questions": [
       {
+        "id": 1,
         "question": "Do you prefer...",
         "answers": [
           { "id": 1, "answer": "Siamese", "correct": false },
@@ -62,6 +67,7 @@
         ]
       },
       {
+        "id": 2,
         "question": "How about...",
         "answers": [
           { "id": 1, "answer": "Sabre Tooth Tiger", "correct": true },
