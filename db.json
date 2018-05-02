@@ -1,0 +1,206 @@
+{
+  "quizzes": [
+    {
+      "id": 1,
+      "title": "Favorite Foods",
+      "categories": [
+        "food",
+        "fun"
+      ],
+      "description": "<p>A <em>delicious</em> test of your favorite food types.</p>",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Do you prefer...",
+          "answers": [
+            {
+              "id": 1,
+              "answer": "Broccoli",
+              "correct": false
+            },
+            {
+              "id": 2,
+              "answer": "Pizza",
+              "correct": true
+            },
+            {
+              "id": 3,
+              "answer": "Beer",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "How about...",
+          "answers": [
+            {
+              "id": 1,
+              "answer": "Cheese",
+              "correct": true
+            },
+            {
+              "id": 2,
+              "answer": "Fruit",
+              "correct": false
+            },
+            {
+              "id": 3,
+              "answer": "Eggs",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Favorite Dogs",
+      "categories": [
+        "dogs",
+        "pets"
+      ],
+      "description": "<p>Red Rover, Red Rover, let React Come Over...</p>",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Do you prefer...",
+          "answers": [
+            {
+              "id": 1,
+              "answer": "Vizshla",
+              "correct": false
+            },
+            {
+              "id": 2,
+              "answer": "Ridgeback",
+              "correct": true
+            },
+            {
+              "id": 3,
+              "answer": "Pomeranian",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "How about...",
+          "answers": [
+            {
+              "id": 1,
+              "answer": "Chiuahuah",
+              "correct": true
+            },
+            {
+              "id": 2,
+              "answer": "Great Dane",
+              "correct": false
+            },
+            {
+              "id": 3,
+              "answer": "Poodle",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Favorite Cats",
+      "categories": [
+        "cats",
+        "pets"
+      ],
+      "description": "<p>Meow. Meow. Is <em>ANYBODY</em> listening? I'm a cat. Deal with it!</p>",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Do you prefer...",
+          "answers": [
+            {
+              "id": 1,
+              "answer": "Siamese",
+              "correct": false
+            },
+            {
+              "id": 2,
+              "answer": "Tabby",
+              "correct": true
+            },
+            {
+              "id": 3,
+              "answer": "Pole Cat",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "How about...",
+          "answers": [
+            {
+              "id": 1,
+              "answer": "Sabre Tooth Tiger",
+              "correct": true
+            },
+            {
+              "id": 2,
+              "answer": "Domestic Short Hair",
+              "correct": false
+            },
+            {
+              "id": 3,
+              "answer": "Calico",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "answers": [
+    {
+      "player": "Sal",
+      "answers": [
+        {
+          "questionId": 1,
+          "answerId": 1
+        },
+        {
+          "questionId": 2,
+          "answerId": 2
+        }
+      ],
+      "id": 1
+    },
+    {
+      "answers": [
+        {
+          "questionId": 1,
+          "answerId": 2
+        },
+        {
+          "questionId": 2,
+          "answerId": 2
+        }
+      ],
+      "id": 2
+    },
+    {
+      "player": "Rimple",
+      "answers": [
+        {
+          "questionId": 1,
+          "answerId": 1
+        },
+        {
+          "questionId": 2,
+          "answerId": 3
+        }
+      ],
+      "id": 3
+    }
+  ]
+}

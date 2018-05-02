@@ -7,6 +7,7 @@ const logger = createLogger();
 
 // actions
 const LOAD_QUIZ_DATA = 'reducers/quiz/LOAD_QUIZ_DATA';
+const LOAD_ANSWER_DATA = 'reducers/quiz/LOAD_ANSWER_DATA';
 const TAKE_QUIZ = 'reducers/quiz/TAKE_QUIZ';
 const END_QUIZ = 'reducers/quiz/END_QUIZ';
 const ANSWER_QUESTIONS = 'reducers/quiz/ANSWER_QUESTIONS';
@@ -22,7 +23,24 @@ export const loadQuizzes = () => (dispatch) => {
         type: LOAD_QUIZ_DATA,
         payload: payload.data
       });
-    });
+    })
+    .then(() => {
+      return axios.get('answers');
+    })
+    .then(
+      payload => {
+        dispatch({
+          type: LOAD_ANSWER_DATA,
+          payload: payload.data
+        });
+      },
+      (payload) => {
+        console.log('WARNING - NO DATA FOR ANSWERS YET', payload);
+        dispatch({
+          type: LOAD_ANSWER_DATA,
+          payload: []
+        });
+      });
 };
 
 export const takeQuiz = (quiz) => {
@@ -58,6 +76,11 @@ function reducer (state, action) {
       return {
         ...state,
         quizzes: action.payload
+      };
+    case LOAD_ANSWER_DATA:
+      return {
+        ...state,
+        answers: action.payload
       };
     case TAKE_QUIZ:
       return {
