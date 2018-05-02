@@ -3,20 +3,15 @@ import {Container, Header, Divider} from 'semantic-ui-react';
 import QuizList from './QuizList';
 import QuizDialog from './QuizDialog';
 import PropTypes from 'prop-types';
-import * as axios from "axios/index";
 
 export default class QuizGame extends Component {
   state = {
     openQuiz: false
   };
 
-  // load game state for non-redux version
-  componentDidMount() {
-    axios.get('quizzes.json')
-      .then(payload => {
-        this.setState({ quizzes: payload.data });
-      });
-  }
+  reportAnswer = (answer) => {
+    console.log(`QuizQuestionDialog answered ${answer}`);
+  };
 
   handleTakeQuiz = (quiz, answers) => {
     this.setState({
@@ -38,7 +33,7 @@ export default class QuizGame extends Component {
         <Header>Quizzer</Header>
         <Divider />
         <QuizList
-          quizzes={this.state.quizzes}
+          quizzes={this.props.quizzes}
           onTakeQuiz={this.handleTakeQuiz}
         />
         <QuizDialog
@@ -50,4 +45,7 @@ export default class QuizGame extends Component {
   }
 };
 
+QuizGame.propTypes = {
+  quizzes: PropTypes.array.isRequired
+};
 

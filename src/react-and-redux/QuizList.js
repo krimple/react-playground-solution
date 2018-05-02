@@ -9,9 +9,7 @@ export default class QuizList extends Component {
   };
 
   render() {
-    if (!this.props.quizzes) {
-      return <p>Please wait...</p>
-    }
+    console.log('quizzes', this.props.quizzes);
     const columns = this.props.quizzes.map((q,idx) => {
       const createMarkup = () => {
         return {__html: q.description}
