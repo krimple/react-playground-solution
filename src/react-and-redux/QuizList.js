@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import { Card, Grid, Button } from 'semantic-ui-react';
+import * as actionCreators from './quiz-store';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-export default class QuizList extends Component {
+class QuizList extends Component {
 
   takeQuiz = (quiz) => {
-    this.props.onTakeQuiz(quiz);
+    this.props.dispatch(actionCreators.takeQuiz(quiz));
   };
 
   render() {
-    console.log('quizzes', this.props.quizzes);
     const columns = this.props.quizzes.map((q,idx) => {
       const createMarkup = () => {
         return {__html: q.description}
@@ -37,3 +38,11 @@ export default class QuizList extends Component {
       </Grid>);
   }
 }
+
+function mapStateToProps(reduxState) {
+  return {
+    quizzes: reduxState.quizzes  ? reduxState.quizzes : []
+  }
+}
+
+export default connect(mapStateToProps)(QuizList);

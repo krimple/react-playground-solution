@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { Form, Input, Radio, Button } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import * as actionCreators from './quiz-store';
 
-export default class QuestionForm extends Component {
+class QuestionForm extends Component {
 
   state = {
     answers: this.props.questions.map(question => {
@@ -56,8 +58,20 @@ export default class QuestionForm extends Component {
           basic={true}
           color={'red'}
           disabled={ this.state.answers.findIndex(a => a.answerId === null) > -1}
-          onClick={() => { this.props.onQuestionsCompleted(this.state.answers) }}>Submit Quiz!</Button>
+          onClick={() => {
+            this.props.dispatch(actionCreators.answerQuestions(this.state.participant, this.state.answers));
+            this.props.dispatch(actionCreators.endQuiz()); }}>
+          Submit Quiz!
+        </Button>
       </Form>
     );
   }
 }
+
+function mapStateToProps(reduxState) {
+  return {
+    questions: reduxState.quiz.questions
+  }
+}
+
+export default connect(mapStateToProps)(QuestionForm);
