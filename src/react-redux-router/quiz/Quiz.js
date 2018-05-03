@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import QuizList from './QuizList';
-import QuizDialog from './QuizDialog';
+import QuizDialog from './quizForm/QuizDialog';
 
 const Quiz = (props) => {
  return <Fragment>

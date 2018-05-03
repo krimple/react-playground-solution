@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Header, Divider, Menu} from 'semantic-ui-react';
-import Quiz from './Quiz';
-import QuizResults from './QuizResults';
+import Quiz from './quiz/Quiz';
+import QuizResultList from './quizResults/QuizResultList';
 
 import {Provider} from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
@@ -16,7 +16,6 @@ const history = createHistory();
 
 store.dispatch(actionCreators.loadQuizzes());
 // fire up the opening gambit
-
 
 export default class QuizGame extends Component {
 
@@ -53,7 +52,7 @@ export default class QuizGame extends Component {
             <Divider/>
           <Switch>
             <Route path="/quiz" strict={true} exact={true} component={Quiz} />
-            <Route path="/answers" strict={true} exact={true} component={QuizResults} />
+            <Route path="/answers" strict={true} exact={true} component={QuizResultList} />
           </Switch>
           </Container>
 

@@ -160,47 +160,21 @@
       ]
     }
   ],
-  "answers": [
+  "quizResults": [
     {
-      "player": "Sal",
-      "answers": [
-        {
-          "questionId": 1,
-          "answerId": 1
-        },
-        {
-          "questionId": 2,
-          "answerId": 2
-        }
-      ],
-      "id": 1
-    },
-    {
+      "quizId": 1,
+      "player": "sfsadfaf",
       "answers": [
         {
           "questionId": 1,
           "answerId": 2
-        },
-        {
-          "questionId": 2,
-          "answerId": 2
-        }
-      ],
-      "id": 2
-    },
-    {
-      "player": "Rimple",
-      "answers": [
-        {
-          "questionId": 1,
-          "answerId": 1
         },
         {
           "questionId": 2,
           "answerId": 3
         }
       ],
-      "id": 3
+      "id": 1
     }
   ]
 }

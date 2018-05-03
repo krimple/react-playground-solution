@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Header, Segment, Modal } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
 import QuestionForm from './QuestionForm';
 import { connect } from 'react-redux';
 

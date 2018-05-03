@@ -7,13 +7,13 @@ const logger = createLogger();
 
 // actions
 const LOAD_QUIZ_DATA = 'reducers/quiz/LOAD_QUIZ_DATA';
-const LOAD_ANSWER_DATA = 'reducers/quiz/LOAD_ANSWER_DATA';
+const LOAD_QUIZ_RESULTS_DATA = 'reducers/quiz/LOAD_QUIZ_RESULTS_DATA';
 const TAKE_QUIZ = 'reducers/quiz/TAKE_QUIZ';
 const END_QUIZ = 'reducers/quiz/END_QUIZ';
 const ANSWER_QUESTIONS = 'reducers/quiz/ANSWER_QUESTIONS';
 
 const initialState = {
-  answers: []
+  quizResults: []
 };
 
 export const loadQuizzes = () => (dispatch) => {
@@ -25,19 +25,19 @@ export const loadQuizzes = () => (dispatch) => {
       });
     })
     .then(() => {
-      return axios.get('answers');
+      return axios.get('quizResults');
     })
     .then(
       payload => {
         dispatch({
-          type: LOAD_ANSWER_DATA,
+          type: LOAD_QUIZ_RESULTS_DATA,
           payload: payload.data
         });
       },
       (payload) => {
         console.log('WARNING - NO DATA FOR ANSWERS YET', payload);
         dispatch({
-          type: LOAD_ANSWER_DATA,
+          type: LOAD_QUIZ_RESULTS_DATA,
           payload: []
         });
       });
@@ -58,11 +58,12 @@ export const endQuiz = () => {
   }
 };
 
-export const answerQuestions = (playerName, answers) => (dispatch) => {
-  axios.post('answers', { player: playerName, answers: answers })
+export const answerQuestions = (quizId, playerName, answers) => (dispatch) => {
+  axios.post('quizResults', { quizId: quizId, player: playerName, answers: answers })
     .then(dispatch({
       type: ANSWER_QUESTIONS,
       payload: {
+        quizId: quizId,
         answers: answers,
         player: playerName,
         date: new Date().toISOString()
@@ -77,10 +78,10 @@ function reducer (state, action) {
         ...state,
         quizzes: action.payload
       };
-    case LOAD_ANSWER_DATA:
+    case LOAD_QUIZ_RESULTS_DATA:
       return {
         ...state,
-        answers: action.payload
+        quizResults: action.payload
       };
     case TAKE_QUIZ:
       return {

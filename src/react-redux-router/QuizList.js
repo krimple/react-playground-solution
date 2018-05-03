@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { Card, Grid, Button } from 'semantic-ui-react';
 import * as actionCreators from './quiz-store';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 class QuizList extends Component {
 

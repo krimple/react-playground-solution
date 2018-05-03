@@ -58,7 +58,7 @@ class QuizTaker extends Component {
 
 }
 
-export default class Quizzer extends Component {
+export default class QuizGame extends Component {
   render() {
     return (
       <Container>
